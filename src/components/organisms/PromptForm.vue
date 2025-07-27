@@ -36,6 +36,16 @@
         />
       </FormField>
 
+			<FormField label="提示詞內容" id="prompt-content" required hint="輸入實際的提示詞內容。">
+				<Textarea
+					id="prompt-content"
+					v-model="formData.content"
+					rows="10"
+					placeholder="請在此處輸入您的提示詞，例如：扮演一個AI助手，回覆使用者問題。"
+					required
+				/>
+			</FormField>
+
       <div class="flex justify-end space-x-3 mt-6">
         <Button variant="secondary" type="button" @click="$emit('cancel')">取消</Button>
         <Button variant="primary" type="submit">儲存提示詞</Button>
@@ -65,6 +75,7 @@ const formData = ref({
   name: props.initialPrompt?.name || '',
   category: props.initialPrompt?.category || '',
   description: props.initialPrompt?.description || '',
+	content: props.initialPrompt?.content || '',
   tagsInput: props.initialPrompt?.tags ? props.initialPrompt.tags.join(', ') : '',
 });
 
@@ -73,6 +84,7 @@ watch(() => props.initialPrompt, (newVal) => {
     formData.value.name = newVal.name;
     formData.value.category = newVal.category;
     formData.value.description = newVal.description;
+		formData.value.content = newVal.content;
     formData.value.tagsInput = newVal.tags.join(', ');
   }
 }, { immediate: true });
@@ -82,6 +94,7 @@ const handleSubmit = () => {
     name: formData.value.name,
     category: formData.value.category,
     description: formData.value.description,
+		content: formData.value.content,
     tags: formData.value.tagsInput
       .split(',')
       .map(tag => tag.trim())
