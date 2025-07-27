@@ -14,7 +14,7 @@
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
         >
-          <BaseIcon v-if="item.iconName" :name="item.iconName" size="sm" class="inline-block mr-2" />
+          <Icon v-if="item.iconName" :name="item.iconName" size="sm" class="inline-block mr-2" />
           {{ item.label }}
         </a>
       </div>
@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import Icon from '../atoms/Icon.vue'; // Make sure BaseIcon is imported
+import Icon from '../atoms/Icon.vue';
 import type { NavMenuItem } from '@/types/nav';
 
 const props = defineProps({
@@ -45,7 +45,5 @@ const emit = defineEmits(['menu-item-selected']);
 const handleMenuItemClick = (item: NavMenuItem) => {
   showMenu.value = false; // Close menu after selection
   emit('menu-item-selected', item); // Emit event for parent to handle navigation
-  // For demonstration, you can still use alerts or console logs here
-  // alert(`Navigating to ${item.label} (Path: ${item.path})`);
 };
 </script>

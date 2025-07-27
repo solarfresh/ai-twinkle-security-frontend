@@ -3,8 +3,8 @@
     <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
       <div class="text-white text-lg font-semibold">LLM 安全紅隊工具</div>
       <div class="relative flex items-center space-x-4">
-        <Link href="#" class="text-gray-300 hover:text-white">排行榜</Link>
-        <Link href="#" class="text-gray-300 hover:text-white">提示詞庫</Link>
+        <Link href="/" class="text-gray-300 hover:text-white">排行榜</Link>
+        <Link href="/prompt-library" class="text-gray-300 hover:text-white">提示詞庫</Link>
 
         <NavLinkDropdown
           title="測試"
@@ -58,20 +58,16 @@ const adminMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
 // --- Handlers for events from child components ---
 
 const handleNavLinkClick = (item: NavMenuItem) => { // <-- Use the interface for parameter type
-  alert(`導航到: ${item.label} (路徑: ${item.path})`);
-  console.log('Navigating to:', item);
 };
 
 const handleLogout = () => {
   if (confirm('確定要登出嗎？')) {
-    alert('您已登出。');
     isLoggedIn.value = false;
     currentUserName.value = '訪客';
   }
 };
 
 const handleLoginClick = () => {
-  alert('導航到登入頁面。');
 };
 </script>
 

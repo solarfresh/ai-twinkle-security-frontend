@@ -1,5 +1,5 @@
 <template>
-  <button :class="['px-4 py-2 rounded font-semibold', variantClasses]">
+  <button :class="['flex flex-row px-4 py-2 rounded font-semibold', variantClasses]">
     <slot></slot>
   </button>
 </template>

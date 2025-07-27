@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <Heading tag="h1" size="2xl" class="mb-6 text-gray-900">LLM 安全排行榜</Heading>
-    <LeaderboardTable :entries="leaderboardData" />
-  </div>
+  <Heading tag="h1" size="2xl" class="mb-6 text-gray-900">LLM 安全排行榜</Heading>
+  <LeaderboardTable :entries="leaderboardData" />
 </template>
 
 <script setup lang="ts">
