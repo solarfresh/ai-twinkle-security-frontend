@@ -1,0 +1,37 @@
+{
+  "name": "twinkle-security-frontend",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "@tailwindcss/typography": "^0.5.16",
+    "axios": "^1.10.0",
+    "date-fns": "^4.1.0",
+    "lodash": "^4.17.21",
+    "markdown-it": "^14.1.0",
+    "tailwindcss": "^4.1.11",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.1.11",
+    "@types/date-fns": "^2.6.3",
+    "@types/lodash": "^4.17.20",
+    "@types/markdown-it": "^14.1.2",
+    "@types/node": "^24.0.15",
+    "@vitejs/plugin-vue": "^6.0.0",
+    "autoprefixer": "^10.4.21",
+    "pinia": "^3.0.3",
+    "postcss": "^8.5.6",
+    "typescript": "^5.8.3",
+    "vite": "^7.0.5",
+    "vite-plugin-vue-devtools": "^7.7.7"
+  }
+}
