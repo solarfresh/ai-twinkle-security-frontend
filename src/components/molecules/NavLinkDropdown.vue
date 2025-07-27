@@ -1,22 +1,40 @@
 <template>
-  <div @mouseenter="showMenu = true" @mouseleave="showMenu = false" class="relative">
-    <button class="text-gray-300 hover:text-white inline-flex items-center">
+  <div class="relative group">
+    <Link
+      href="#"
+      class="text-gray-300 hover:text-white py-2 rounded-md transition-colors duration-200"
+      @click.prevent="toggleDropdown"
+      @mouseover="openDropdown"
+      @mouseleave="closeDropdown"
+    >
       {{ title }}
-      <Icon name="ChevronDown" size="sm" class="ml-1" />
-    </button>
-    <div v-if="showMenu" class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
-      <div class="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-        <a
+      <Icon
+        name="ChevronDown"
+        size="sm"
+        :class="['inline-block ml-1 transition-transform duration-200', { 'rotate-180': isOpen }]"
+      />
+    </Link>
+    <div
+      v-if="isOpen"
+      class="absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"
+      role="menu"
+      aria-orientation="vertical"
+      aria-labelledby="menu-button"
+      @mouseover="openDropdown"
+      @mouseleave="closeDropdown"
+    >
+      <div class="py-1" role="none">
+        <Link
           v-for="item in menuItems"
           :key="item.label"
-          :href="item.path || '#'"
-          @click.prevent="handleMenuItemClick(item)"
+          :href="item.path"
           class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
           role="menuitem"
+          @click="selectItem(item)"
         >
           <Icon v-if="item.iconName" :name="item.iconName" size="sm" class="inline-block mr-2" />
           {{ item.label }}
-        </a>
+        </Link>
       </div>
     </div>
   </div>
@@ -24,26 +42,40 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import Link from '../atoms/Link.vue';
 import Icon from '../atoms/Icon.vue';
 import type { NavMenuItem } from '@/types/nav';
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  menuItems: {
-    type: Array as () => NavMenuItem[], // Array of { label: String, iconName?: String, path?: String }
-    default: () => [],
-  },
-});
-
-const showMenu = ref(false);
+const props = defineProps<{
+  title: string;
+  menuItems: NavMenuItem[];
+}>();
 
 const emit = defineEmits(['menu-item-selected']);
 
-const handleMenuItemClick = (item: NavMenuItem) => {
-  showMenu.value = false; // Close menu after selection
-  emit('menu-item-selected', item); // Emit event for parent to handle navigation
+const isOpen = ref(false);
+let timeout: ReturnType<typeof setTimeout> | null = null;
+
+const toggleDropdown = () => {
+  isOpen.value = !isOpen.value;
+};
+
+const openDropdown = () => {
+  if (timeout) {
+    clearTimeout(timeout);
+    timeout = null;
+  }
+  isOpen.value = true;
+};
+
+const closeDropdown = () => {
+  timeout = setTimeout(() => {
+    isOpen.value = false;
+  }, 200); // Small delay to prevent accidental closing
+};
+
+const selectItem = (item: NavMenuItem) => {
+  emit('menu-item-selected', item);
+  isOpen.value = false; // Close dropdown after selection
 };
 </script>

@@ -3,6 +3,7 @@ import AddEditPromptPage from '@/components/pages/PromptLibrary/AddEditPromptPag
 import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue';
 import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import ExecuteTestPage from '@/components/pages/Test/ExecuteTestPage.vue';
 
 const routes = [
   {
@@ -29,7 +30,12 @@ const routes = [
     path: '/prompt-library/:id/edit',
     name: 'EditPrompt',
     component: AddEditPromptPage,
-  }
+  },
+  {
+    path: '/execute-test',
+    name: 'ExecuteTest',
+    component: ExecuteTestPage,
+  },
 ]
 
 const router = createRouter({

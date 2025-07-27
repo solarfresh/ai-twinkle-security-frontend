@@ -1,5 +1,5 @@
 <template>
-  <div class="flex items-center space-x-4">
+  <div class="py-2 flex items-center space-x-4">
     <template v-if="isLoggedIn">
       <span class="text-gray-300">歡迎, {{ userName }}</span>
       <a href="#" class="text-gray-300 hover:text-white" @click.prevent="handleLogout">
