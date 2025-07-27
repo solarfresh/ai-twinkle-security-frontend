@@ -45,7 +45,5 @@ const emit = defineEmits(['menu-item-selected']);
 const handleMenuItemClick = (item: NavMenuItem) => {
   showMenu.value = false; // Close menu after selection
   emit('menu-item-selected', item); // Emit event for parent to handle navigation
-  // For demonstration, you can still use alerts or console logs here
-  // alert(`Navigating to ${item.label} (Path: ${item.path})`);
 };
 </script>

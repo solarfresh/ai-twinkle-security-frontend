@@ -58,20 +58,16 @@ const adminMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
 // --- Handlers for events from child components ---
 
 const handleNavLinkClick = (item: NavMenuItem) => { // <-- Use the interface for parameter type
-  alert(`導航到: ${item.label} (路徑: ${item.path})`);
-  console.log('Navigating to:', item);
 };
 
 const handleLogout = () => {
   if (confirm('確定要登出嗎？')) {
-    alert('您已登出。');
     isLoggedIn.value = false;
     currentUserName.value = '訪客';
   }
 };
 
 const handleLoginClick = () => {
-  alert('導航到登入頁面。');
 };
 </script>
 

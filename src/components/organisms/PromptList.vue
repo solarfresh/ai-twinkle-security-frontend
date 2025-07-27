@@ -20,13 +20,13 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue';
-import SearchBar from '../molecules/SearchBar.vue';
-import PromptCard from '../molecules/PromptCard.vue';
+import type { PromptEntry } from '@/types/prompt'; // Import the interface
+import { computed, ref } from 'vue';
 import Button from '../atoms/Button.vue';
 import Icon from '../atoms/Icon.vue';
 import Paragraph from '../atoms/Paragraph.vue';
-import type { PromptEntry } from '@/types/prompt'; // Import the interface
+import PromptCard from '../molecules/PromptCard.vue';
+import SearchBar from '../molecules/SearchBar.vue';
 
 const props = defineProps<{
   prompts: PromptEntry[]; // Array of all prompts

@@ -1,7 +1,7 @@
 <template>
   <div class="bg-white p-4 rounded-lg shadow-sm border border-gray-200 hover:shadow-md transition-shadow duration-200">
     <div class="flex justify-between items-start mb-2">
-      <Link :to="`/prompt-library/${prompt.id}`" class="text-lg font-semibold text-blue-700 hover:underline">
+      <Link :href="`/prompt-library/${prompt.id}`" class="text-lg font-semibold text-blue-700 hover:underline">
         {{ prompt.name }}
       </Link>
       <span class="text-xs font-medium text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{{ prompt.category }}</span>
@@ -21,9 +21,9 @@
 </template>
 
 <script setup lang="ts">
+import type { PromptEntry } from '@/types/prompt';
 import Link from '../atoms/Link.vue';
 import Paragraph from '../atoms/Paragraph.vue';
-import type { PromptEntry } from '@/types/prompt';
 
 defineProps<{
   prompt: PromptEntry;

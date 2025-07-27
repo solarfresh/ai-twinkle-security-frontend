@@ -1,12 +1,13 @@
-import { createRouter, createWebHistory } from 'vue-router';
 import LeaderboardPage from '@/components/pages/LeaderboardPage.vue';
-import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue'
 import AddEditPromptPage from '@/components/pages/PromptLibrary/AddEditPromptPage.vue';
+import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue';
+import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
     path: '/',
-    name: 'LeaderboardPage',
+    name: 'Leaderboard',
     component: LeaderboardPage,
   },
   {
@@ -20,7 +21,12 @@ const routes = [
     component: AddEditPromptPage,
   },
   {
-    path: '/prompt-library/edit/:id',
+    path: '/prompt-library/:id',
+    name: 'PromptView',
+    component: PromptViewPage,
+  },
+  {
+    path: '/prompt-library/:id/edit',
     name: 'EditPrompt',
     component: AddEditPromptPage,
   }
