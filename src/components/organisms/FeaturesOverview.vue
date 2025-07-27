@@ -28,5 +28,4 @@
 <script setup lang="ts">
 import Heading from '../atoms/Heading.vue';
 import FeatureCard from '../molecules/FeatureCard.vue';
-// Icons are passed as strings to FeatureCard and resolved by BaseIcon
 </script>
