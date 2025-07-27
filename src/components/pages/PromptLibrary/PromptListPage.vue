@@ -1,15 +1,11 @@
 <template>
-  <div>
-    <Heading tag="h1" size="2xl" class="mb-6 text-gray-900">提示詞庫</Heading>
-
-    <PromptList :prompts="allPrompts" @add-prompt="navigateToAddPrompt" />
-  </div>
+  <Heading tag="h1" size="2xl" class="mb-6 text-gray-900">提示詞庫</Heading>
+  <PromptList :prompts="allPrompts" @add-prompt="navigateToAddPrompt" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
-// No need to import DashboardLayout here anymore
 
 import Heading from '../../atoms/Heading.vue';
 import PromptList from '../../organisms/PromptList.vue';
@@ -68,7 +64,6 @@ const allPrompts = ref<PromptEntry[]>([
 
 // --- Handlers ---
 const navigateToAddPrompt = () => {
-  alert('導航到新增提示詞頁面');
   router.push('/prompt-library/add'); // Example route for adding a prompt
 };
 </script>
