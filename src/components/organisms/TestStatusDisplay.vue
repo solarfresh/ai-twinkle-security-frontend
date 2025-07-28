@@ -9,11 +9,14 @@
       <TestProgressCard
         v-for="test in tests"
         :key="test.id"
+        :test-id="test.id"
         :test-name="test.name"
         :model-name="test.model"
         :start-time="test.startTime"
         :status="test.status"
         :progress="test.progress"
+        @view-details="navigateToTestDetails"
+        @view-errors="navigateToTestErrors"
       />
     </div>
   </div>
@@ -22,12 +25,13 @@
 <script setup lang="ts">
 import type { TestRun } from '@/types/test'; // Import both
 import { PropType } from 'vue';
+import { useRouter } from 'vue-router';
 import Heading from '../atoms/Heading.vue';
 import Icon from '../atoms/Icon.vue';
 import Paragraph from '../atoms/Paragraph.vue';
 import TestProgressCard from '../molecules/TestProgressCard.vue';
 
-// Removed the local TestRun interface as it's now imported from types/test.ts
+const router = useRouter();
 
 defineProps({
   tests: {
@@ -35,4 +39,12 @@ defineProps({
     required: true,
   },
 });
+
+const navigateToTestDetails = (id: string) => {
+  router.push(`/test/records/${id}`); // Actual navigation
+};
+
+const navigateToTestErrors = (id: string) => {
+  router.push(`/test/records/${id}/errors`);
+};
 </script>

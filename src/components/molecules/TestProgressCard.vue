@@ -13,12 +13,12 @@
     <Paragraph v-if="status === TestStatus.RUNNING" size="sm" class="text-blue-600 mt-1">{{ progress }}% 完成</Paragraph>
 
     <div v-if="status === TestStatus.COMPLETED" class="flex justify-end mt-4">
-      <Button variant="outline" size="sm">
-        <Icon name="DocumentText" size="sm" class="mr-1" /> 查看報告
+      <Button variant="outline" size="sm" @click="$emit('view-details', testId)">
+        <Icon name="DocumentText" size="sm" class="mr-1" /> 查看詳情
       </Button>
     </div>
     <div v-else-if="status === TestStatus.FAILED" class="flex justify-end mt-4">
-      <Button variant="danger" size="sm">
+      <Button variant="danger" size="sm" @click="$emit('view-errors', testId)">
         <Icon name="ExclamationTriangle" size="sm" class="mr-1" /> 查看錯誤
       </Button>
     </div>
@@ -33,11 +33,17 @@ import Icon from '../atoms/Icon.vue';
 import { TestStatus } from '@/enums/test';
 
 const props = defineProps<{
+  testId: string;
   testName: string;
   modelName: string;
   startTime: string;
   status: TestStatus; // Use TestStatus enum
   progress?: number; // Only for 'running' status
+}>();
+
+const emit = defineEmits<{
+  (e: 'view-details', id: string): void;
+  (e: 'view-errors', id: string): void;
 }>();
 
 const statusClass = computed(() => {

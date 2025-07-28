@@ -2,9 +2,10 @@ import LeaderboardPage from '@/components/pages/LeaderboardPage.vue';
 import AddEditPromptPage from '@/components/pages/PromptLibrary/AddEditPromptPage.vue';
 import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue';
 import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
-import { createRouter, createWebHistory } from 'vue-router';
 import ExecuteTestPage from '@/components/pages/Test/ExecuteTestPage.vue';
+import TestRecordDetailsPage from '@/components/pages/Test/TestRecordDetailsPage.vue';
 import TestRecordsPage from '@/components/pages/Test/TestRecordsPage.vue';
+import { createRouter, createWebHistory } from 'vue-router';
 
 const routes = [
   {
@@ -42,6 +43,16 @@ const routes = [
     name: 'TestRecords',
     component: TestRecordsPage,
   },
+  {
+    path: '/test/records/:id',
+    name: 'TestRecordDetails',
+    component: TestRecordDetailsPage,
+  },
+  // {
+  //   path: '/test/records/:id/errors',
+  //   name: 'TestRecordErrors',
+  //   component: () => import('@/components/pages/Test/TestRecordErrorsPage.vue'),
+  // },
 ]
 
 const router = createRouter({

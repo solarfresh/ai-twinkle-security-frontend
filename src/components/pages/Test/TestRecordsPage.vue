@@ -12,8 +12,8 @@
 </template>
 
 <script setup lang="ts">
-import { TestStatus } from '@/enums/test'; // Import TestStatus enum
-import type { TestRecord } from '@/types/test';
+import { TestStatus } from '@/enums/test';
+import type { TestRecord } from '@/types/test'; // Import TestRecord
 import { ref } from 'vue';
 import { useRouter } from 'vue-router';
 import Heading from '../../atoms/Heading.vue';
@@ -72,17 +72,14 @@ const mockTestRecords = ref<TestRecord[]>([
 
 // Handlers
 const navigateToTestDetails = (id: string) => {
-  alert(`導航到測試記錄詳情頁面 (ID: ${id})`);
-  // In a real app: router.push(`/test/records/${id}`);
+  router.push(`/test/records/${id}`); // Actual navigation
 };
 
 const navigateToTestErrors = (id: string) => {
-  alert(`導航到測試錯誤報告頁面 (ID: ${id})`);
-  // In a real app: router.push(`/test/records/${id}/errors`);
+  router.push(`/test/records/${id}/errors`);
 };
 
 const fetchTestRecords = () => {
-  alert('重新整理測試記錄...');
   // In a real app, make an API call here to get fresh data
 };
 </script>

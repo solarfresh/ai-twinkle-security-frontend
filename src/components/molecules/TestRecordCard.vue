@@ -21,15 +21,15 @@
 </template>
 
 <script setup lang="ts">
-import { TestStatus } from '@/enums/test'; // Import the enum
-import type { TestRecord } from '@/types/test';
+import { TestStatus } from '@/enums/test';
 import { computed } from 'vue';
+import { type TestRecord } from '../../types/test';
 import Button from '../atoms/Button.vue';
 import Icon from '../atoms/Icon.vue';
 import Paragraph from '../atoms/Paragraph.vue';
 
 const props = defineProps<{
-  record: TestRecord;
+  record: TestRecord; // Use imported TestRecord
 }>();
 
 const emit = defineEmits<{
@@ -42,7 +42,7 @@ const statusClass = computed(() => {
     case TestStatus.COMPLETED: return 'border-green-300';
     case TestStatus.FAILED: return 'border-red-300';
     case TestStatus.CANCELLED: return 'border-gray-400';
-    default: return 'border-gray-200'; // Should ideally not happen for records
+    default: return 'border-gray-200';
   }
 });
 
