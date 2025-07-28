@@ -42,6 +42,7 @@ const currentUserName = ref<string>('管理員'); // Explicit type
 
 const testMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
   { label: '執行測試', iconName: 'Play', path: '/execute-test' },
+  { label: '測試記錄', iconName: 'ClipboardDocumentList', path: '/test/records' },
   { label: '自動化測試', iconName: 'DocumentMagnifyingGlass', path: '/automated-tests' },
   { label: '沙箱環境', iconName: 'CodeBracket', path: '/sandbox' },
   { label: '報告與視覺化', iconName: 'ChartBar', path: '/reports' },

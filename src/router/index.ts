@@ -4,6 +4,7 @@ import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue'
 import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
 import ExecuteTestPage from '@/components/pages/Test/ExecuteTestPage.vue';
+import TestRecordsPage from '@/components/pages/Test/TestRecordsPage.vue';
 
 const routes = [
   {
@@ -35,6 +36,11 @@ const routes = [
     path: '/execute-test',
     name: 'ExecuteTest',
     component: ExecuteTestPage,
+  },
+  {
+    path: '/test/records',
+    name: 'TestRecords',
+    component: TestRecordsPage,
   },
 ]
 
