@@ -3,8 +3,8 @@
     <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
       <div class="text-white text-lg font-semibold">LLM 安全紅隊工具</div>
       <div class="relative flex items-center space-x-4">
-        <Link href="/" class="p-2 text-gray-300 hover:text-white">排行榜</Link>
-        <Link href="/prompt-library" class="p-2 text-gray-300 hover:text-white">提示詞庫</Link>
+        <Link href='/' target='_vue' class="p-2 text-gray-300 hover:text-white">排行榜</Link>
+        <Link href='/prompt-library' target='_vue' class="p-2 text-gray-300 hover:text-white">提示詞庫</Link>
 
         <NavLinkDropdown
           title="測試"
