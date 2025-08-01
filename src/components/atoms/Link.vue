@@ -1,5 +1,8 @@
 <template>
-  <a :href="href" :target="target" :class="['text-blue-600 hover:text-blue-800', sizeClass]">
+  <RouterLink v-if="target === '_vue'" :to="href" :class="['text-blue-600 hover:text-blue-800', sizeClass]">
+    <slot></slot>
+  </RouterLink>
+  <a v-else :href="href" :target="target" :class="['text-blue-600 hover:text-blue-800', sizeClass]">
     <slot></slot>
   </a>
 </template>

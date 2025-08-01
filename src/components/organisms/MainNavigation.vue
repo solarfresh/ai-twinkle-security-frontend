@@ -3,8 +3,8 @@
     <div class="container mx-auto flex items-center justify-between px-4 sm:px-6 lg:px-8">
       <div class="text-white text-lg font-semibold">LLM 安全紅隊工具</div>
       <div class="relative flex items-center space-x-4">
-        <Link href="/" class="text-gray-300 hover:text-white">排行榜</Link>
-        <Link href="/prompt-library" class="text-gray-300 hover:text-white">提示詞庫</Link>
+        <Link href='/' target='_vue' class="p-2 text-gray-300 hover:text-white">排行榜</Link>
+        <Link href='/prompt-library' target='_vue' class="p-2 text-gray-300 hover:text-white">提示詞庫</Link>
 
         <NavLinkDropdown
           title="測試"
@@ -41,10 +41,11 @@ const isLoggedIn = ref<boolean>(true); // Explicit type
 const currentUserName = ref<string>('管理員'); // Explicit type
 
 const testMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
-  { label: '執行測試', iconName: 'Play', path: '/execute-test' },
-  { label: '自動化測試', iconName: 'DocumentMagnifyingGlass', path: '/automated-tests' },
-  { label: '沙箱環境', iconName: 'CodeBracket', path: '/sandbox' },
-  { label: '報告與視覺化', iconName: 'ChartBar', path: '/reports' },
+  { label: '沙箱環境', iconName: 'Play', path: '/test/sandbox' },
+  { label: '測試記錄', iconName: 'ClipboardDocumentList', path: '/test/records' },
+  { label: '自動化測試', iconName: 'DocumentMagnifyingGlass', path: '/test/automated-tests' },
+  // { label: '沙箱環境', iconName: 'CodeBracket', path: '/test/sandbox' },
+  { label: '報告與視覺化', iconName: 'ChartBar', path: '/test/reports' },
 ];
 
 const adminMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
