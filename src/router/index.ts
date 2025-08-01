@@ -6,6 +6,7 @@ import ExecuteTestPage from '@/components/pages/Test/ExecuteTestPage.vue';
 import TestRecordDetailsPage from '@/components/pages/Test/TestRecordDetailsPage.vue';
 import TestRecordsPage from '@/components/pages/Test/TestRecordsPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
+import SandboxPage from '@/components/pages/Test/SandboxPage.vue';
 
 const routes = [
   {
@@ -34,7 +35,7 @@ const routes = [
     component: AddEditPromptPage,
   },
   {
-    path: '/execute-test',
+    path: '/test/execute-test',
     name: 'ExecuteTest',
     component: ExecuteTestPage,
   },
@@ -48,11 +49,11 @@ const routes = [
     name: 'TestRecordDetails',
     component: TestRecordDetailsPage,
   },
-  // {
-  //   path: '/test/records/:id/errors',
-  //   name: 'TestRecordErrors',
-  //   component: () => import('@/components/pages/Test/TestRecordErrorsPage.vue'),
-  // },
+  {
+    path: '/test/sandbox',
+    name: 'Sandbox',
+    component: SandboxPage,
+  },
 ]
 
 const router = createRouter({
