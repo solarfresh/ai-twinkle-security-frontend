@@ -1,12 +1,13 @@
 import LeaderboardPage from '@/components/pages/LeaderboardPage.vue';
+import UserManagementPage from '@/components/pages/Management/UserManagementPage.vue';
 import AddEditPromptPage from '@/components/pages/PromptLibrary/AddEditPromptPage.vue';
 import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue';
 import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
 import ExecuteTestPage from '@/components/pages/Test/ExecuteTestPage.vue';
+import SandboxPage from '@/components/pages/Test/SandboxPage.vue';
 import TestRecordDetailsPage from '@/components/pages/Test/TestRecordDetailsPage.vue';
 import TestRecordsPage from '@/components/pages/Test/TestRecordsPage.vue';
 import { createRouter, createWebHistory } from 'vue-router';
-import SandboxPage from '@/components/pages/Test/SandboxPage.vue';
 
 const routes = [
   {
@@ -54,6 +55,11 @@ const routes = [
     name: 'Sandbox',
     component: SandboxPage,
   },
+  {
+    path: '/management/users',
+    name: 'UserManagement',
+    component: UserManagementPage
+  }
 ]
 
 const router = createRouter({
