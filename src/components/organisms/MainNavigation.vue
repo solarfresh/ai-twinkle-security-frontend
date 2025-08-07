@@ -52,7 +52,7 @@ const adminMenuItems: NavMenuItem[] = [ // <-- Use the interface for array
   { label: 'LLM 設定', iconName: 'ServerStack', path: '/llm-settings' },
   { label: '工具設定', iconName: 'Cog6Tooth', path: '/tool-settings' },
   { label: '系統日誌', iconName: 'RectangleStack', path: '/system-logs' },
-  { label: '使用者管理', iconName: 'Users', path: '/user-management' },
+  { label: '使用者管理', iconName: 'Users', path: '/management/user-management' },
   { label: '角色與權限', iconName: 'ShieldCheck', path: '/roles-permissions' },
 ];
 
