@@ -59,10 +59,13 @@
             </td>
             <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
               <div class="flex space-x-2">
+                <Button variant="ghost" size="sm" @click="$emit('view-user', user.id)">
+                  <Icon name="Eye" size="sm" />
+                </Button>
                 <Button variant="ghost" size="sm" @click="$emit('edit-user', user)">
                   <Icon name="Pencil" size="sm" />
                 </Button>
-                <Button variant="ghost" size="sm" @click="$emit('delete-user', user.id)">
+                <Button variant="danger" size="sm" @click="$emit('delete-user', user.id)">
                   <Icon name="Trash" size="sm" />
                 </Button>
               </div>
@@ -88,6 +91,7 @@ const emit = defineEmits<{
   (e: 'add-user'): void;
   (e: 'edit-user', user: User): void;
   (e: 'delete-user', id: string): void;
+  (e: 'view-user', id: string): void;
 }>();
 
 const searchTerm = ref('');

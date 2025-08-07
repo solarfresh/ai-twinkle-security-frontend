@@ -1,5 +1,6 @@
 import LeaderboardPage from '@/components/pages/LeaderboardPage.vue';
 import UserManagementPage from '@/components/pages/Management/UserManagementPage.vue';
+import ViewUserPage from '@/components/pages/Management/ViewUserPage.vue';
 import AddEditPromptPage from '@/components/pages/PromptLibrary/AddEditPromptPage.vue';
 import PromptListPage from '@/components/pages/PromptLibrary/PromptListPage.vue';
 import PromptViewPage from '@/components/pages/PromptLibrary/PromptViewPage.vue';
@@ -56,9 +57,14 @@ const routes = [
     component: SandboxPage,
   },
   {
-    path: '/management/users',
+    path: '/management/user-management',
     name: 'UserManagement',
     component: UserManagementPage
+  },
+  {
+    path: '/management/user/management/:id',
+    name: 'ViewUser',
+    component: ViewUserPage
   }
 ]
 
